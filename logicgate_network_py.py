@@ -94,9 +94,9 @@ class LogicGatesNetwork:
 if __name__ == '__main__':
     files = ["and.csv", "or.csv", "xor.csv"]
     print("Choose your network")
-    choice = int(input("1. AND" + "\n" + "2. OR" + "\n" + "3. XOR" + "\n" + "Enter choice: "))
-    myFile = load_data(files[choice-1])
-
+    #choice = int(input("1. AND" + "\n" + "2. OR" + "\n" + "3. XOR" + "\n" + "Enter choice: "))
+    #myFile = load_data(files[choice-1])
+    myFile = load_data("xnor.csv")
     X, Y = preprocess(myFile)
 
     network = LogicGatesNetwork(X, Y)
