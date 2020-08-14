@@ -1,16 +1,43 @@
 import numpy as np
 
+'''
+Computes the sigmoid functions with the given input
 
+@param x The input to the sigmoid function
+@return  The output of the sigmoid function given the param as input
+'''
 def sigmoid(x):
     s = 1/(1+np.exp(-x))
     return s
 
+'''
+Loads in the data from a csv file and converts it to a numpy array.
+The dimensions of the array are (m,n) where m is the # of training examples
+and n-1 is the # of inputs to the network. There is 1 output to the network.
 
+@param filename  The name of the csv file
+@return          The numpy array containing the contents of the csv file
+'''
 def load_data(filename):
     return np.genfromtxt(filename, delimiter=',')
 
+'''
+Splits the raw data into inputs (X) and (Y). For each training example (row)
+in the data, the last value (column) is stripped and put into the Y array. The rest 
+of the data in that row is put into the X array.
 
-def preprocess(data):
+Example                                X       and     Y 
+[[x1, x2, y1],       ------>      [[x1, x2],         [[y1], 
+ [x3, x4, y2]]       ------>       [x3, x4]]         [y2]]
+
+@param  data  The input numpy array which needs to be split
+@return X     The X numpy array with dimensions (m,n-1) 
+              where m = #training examples (rows) 
+              and n = #columns in data numpy array
+@return Y     The Y numpy array with dimensions (m, 1)
+              as there is only 1 output to this neural network
+'''
+def split_X_Y(data):
     X = []
     Y = []
 
@@ -97,8 +124,8 @@ if __name__ == '__main__':
     choice = int(input("1. AND" + "\n" + "2. OR" + "\n" + "3. XOR" + "\n" +
                        "4. NAND" + "\n" + "5. NOR" + "\n" + "6. XNOR" + "\n" + "Enter choice: "))
     myFile = load_data("data/" + files[choice-1])
-    #myFile = load_data("or.csv")
-    X, Y = preprocess(myFile)
+
+    X, Y = split_X_Y(myFile)
 
     network = LogicGatesNetwork(X, Y)
     network.train()
