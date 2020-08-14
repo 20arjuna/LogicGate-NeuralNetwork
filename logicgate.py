@@ -96,7 +96,7 @@ if __name__ == '__main__':
     print("Choose your network")
     choice = int(input("1. AND" + "\n" + "2. OR" + "\n" + "3. XOR" + "\n" +
                        "4. NAND" + "\n" + "5. NOR" + "\n" + "6. XNOR" + "\n" + "Enter choice: "))
-    myFile = load_data(files[choice-1])
+    myFile = load_data("data/" + files[choice-1])
     #myFile = load_data("or.csv")
     X, Y = preprocess(myFile)
 
