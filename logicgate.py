@@ -1,3 +1,12 @@
+"""
+File Description: Code for a simple 2 layer neural network which I used to simulate a
+                  logic gate. AND, OR, XOR, NAND, NOR, XNOR boolean operations are supported.
+
+@author:  Arjun Akkiraju
+          with assistance from Aditya Thiruvengadam
+@version: 8/13/20
+"""
+
 import numpy as np
 
 '''
